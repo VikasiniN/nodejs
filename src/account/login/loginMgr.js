@@ -15,3 +15,10 @@ exports.adminAccount = function(req, res) {
     console.log(error);
   }
 };
+exports.customerDetails = function(req, res) {
+  try {
+    loginDA.customerDetails(req, res);
+  } catch (error) {
+    console.log(error);
+  }
+};

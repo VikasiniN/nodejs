@@ -11,6 +11,9 @@ exports.createBooking = function(req, res, bookingId, oldNum, newNum) {
   bookings.busId = req.body.busId;
   bookings.busDetails = req.body.busDetails;
   bookings.customerEmailID = req.body.customerEmailID;
+  bookings.seatNo = req.body.seatNo;
+  bookings.price = req.body.price;
+  bookings.amountDeducted = req.body.amountDeducted;
   bookings.save(function(err, data) {
     if (err) {
       res.status(500).json(err);
@@ -24,7 +27,7 @@ exports.createBooking = function(req, res, bookingId, oldNum, newNum) {
           if (err) {
             res.status(500).json(err);
           } else {
-            res.status(200).json(saveId);
+            res.status(200).json(data);
           }
         }
       );

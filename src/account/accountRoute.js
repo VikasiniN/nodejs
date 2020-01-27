@@ -23,4 +23,6 @@ module.exports = function(app) {
   app
     .route("/getallcustomer") // Get All Customer Details
     .get(registrationMgr.getAllCustomer);
+
+  app.route("/getSingleCustomer/:id").get(loginMgr.customerDetails);
 };

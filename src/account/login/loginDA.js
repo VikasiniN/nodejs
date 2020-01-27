@@ -1,5 +1,6 @@
 var masterAccount = require("../../model/masterAccount.model");
 var adminAccount = require("../../model/adminAccount.model");
+var customerDetails = require("../../model/customerAccount.model");
 
 exports.login = function(req, res) {
   masterAccount
@@ -31,6 +32,20 @@ exports.adminAccount = function(req, res) {
         res.status(500).json(err);
       } else {
         res.status(200).json(findData);
+      }
+    });
+};
+exports.customerDetails = function(req, res) {
+  customerDetails
+    .findOne({
+      _id: req.params.id
+    })
+    .select()
+    .exec(function(err, customerData) {
+      if (err) {
+        res.status(500).json(err);
+      } else {
+        res.status(200).json(customerData);
       }
     });
 };

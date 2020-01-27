@@ -87,12 +87,12 @@ exports.sendInvoice = function(req, res) {
     });
     var mailOptions = {
       from: "developergirl09@gmail.com",
-      to: "vikasininithi@gmail.com",
+      to: req.body.customerEmailId,
       subject: "Bookings",
       attachments: [
         {
           filename: `file.pdf`,
-          content: "hello",
+          content: req.body.content,
           encoding: "base64",
           contentType: "application/pdf"
         }

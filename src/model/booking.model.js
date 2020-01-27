@@ -8,7 +8,10 @@ const bookingSchema = new mongoose.Schema({
   date: Date,
   busId: String,
   busDetails: String,
-  customerEmailID: String
+  customerEmailID: String,
+  seatNo: String,
+  price: Number,
+  amountDeducted: Number
 });
 
 const bookings = mongoose.model("bookingDetails", bookingSchema);
